@@ -6,7 +6,7 @@
 				const urlParams = new URLSearchParams(queryString);
 				const post_id = urlParams.get('post_id');
 				
-				if ( post_id == '' ) {
+				if ( post_id == undefined ) {
 					const { REPLY } = require('discourse/models/composer').default;
 
 					const composer = Discourse.__container__.lookup('controller:composer');
