@@ -1,6 +1,6 @@
 <script type="text/discourse-plugin" version="0.4">
 	if (/.*#reply$/g.test(document.URL)) {
-		if (user_is_logged_in_to_discourse()) {
+		if ($("li#current-user").length) {
 			const { REPLY } = require('discourse/models/composer').default;
 
 			const composer = Discourse.__container__.lookup('controller:composer');
@@ -19,9 +19,5 @@
 		} else {
 			$("button.sign-up-button").trigger("click");
 		}
-	}
-		
-	function user_is_logged_in_to_discourse() {
-		return $("li#current-user").length && true;
 	}
 </script>
