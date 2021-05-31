@@ -18,7 +18,10 @@
 					}
 				}, 0);
 			} else {
-				$("button.sign-up-button").trigger("click");
+				$("html").scrollTop(0);
+				setTimeout(() => {
+					$("button.sign-up-button").trigger("click");
+				}, 0);
 			}
 		}, 1000);
 	}
