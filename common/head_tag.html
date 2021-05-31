@@ -1,9 +1,9 @@
 <script type="text/discourse-plugin" version="0.4">
-	if (/.*#reply$/g.test(document.URL)) {
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if (urlParams.get('reply') != undefined) {
 		setTimeout(() => {
 			if ($("li#current-user").length) {
-				const queryString = window.location.search;
-				const urlParams = new URLSearchParams(queryString);
 				const post_id = urlParams.get('post_id');
 				
 				if ( post_id == undefined ) {
