@@ -1,5 +1,6 @@
 <script type="text/discourse-plugin" version="0.4">
 	if (/.*#reply$/g.test(document.URL)) {
+		console.log($("li#current-user").length);
 		if ($("li#current-user").length) {
 			const { REPLY } = require('discourse/models/composer').default;
 
