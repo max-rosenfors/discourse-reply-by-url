@@ -1,19 +1,27 @@
 <script type="text/discourse-plugin" version="0.4">
 	if (/.*#reply$/g.test(document.URL)) {
-		const { REPLY } = require('discourse/models/composer').default;
+		if (user_is_logged_in_to_discourse()) {
+			const { REPLY } = require('discourse/models/composer').default;
 
-		const composer = Discourse.__container__.lookup('controller:composer');
+			const composer = Discourse.__container__.lookup('controller:composer');
 
-		setTimeout(function() {
-			const topic = Discourse.__container__.lookup("controller:topic").get("model");
-			if (topic) {
-			composer.open({
-				action: REPLY,
-				draftKey: topic.draft_key,
-				draftSequence: topic.draft_sequence,
-				topic,
-			});
-			}
-		}, 0);
+			setTimeout(function() {
+				const topic = Discourse.__container__.lookup("controller:topic").get("model");
+				if (topic) {
+				composer.open({
+					action: REPLY,
+					draftKey: topic.draft_key,
+					draftSequence: topic.draft_sequence,
+					topic,
+				});
+				}
+			}, 0);
+		} else {
+			$("button.sign-up-button").trigger("click");
+		}
+	}
+		
+	function user_is_logged_in_to_discourse() {
+		return $("li#current-user").length && true;
 	}
 </script>
