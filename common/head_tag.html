@@ -24,6 +24,7 @@
 					}, 0);
 				} else {
 					setTimeout(() => {
+						console.log($("#post_id"+post_id+" button.reply").length);
 						$("#post_id"+post_id+" button.reply").trigger("click");
 					}, 500);
 				}
