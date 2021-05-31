@@ -1,6 +1,6 @@
 {
   "name": "discourse-reply-by-url",
-  "component": false,
+  "component": true,
   "about_url": "https://github.com/max-rosenfors/discourse-reply-by-url",
   "license_url": "https://github.com/max-rosenfors/discourse-reply-by-url/LICENSE.md",
    "assets": {
