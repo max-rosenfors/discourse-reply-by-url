@@ -79,3 +79,24 @@
 <p>Detta är en bit text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at pharetra libero, vitae porttitor felis.</p>
 <p>Proin rhoncus metus vel lectus efficitur tincidunt. Etiam mollis felis et pulvinar cursus. Cras nec sollicitudin enim, id rhoncus eros. Suspendisse sit amet pellentesque felis.</p>
 </script>
+<script type="text/discourse-plugin" version="0.8.18">
+	//description:
+	// en: 'Comma delimited in this order: Text,URL,Location,Target.
+	// Text: what appears on the menu.
+	// URL: the path for the link.
+	// Location: where you want the link to appear. Use "g" for generalLinks and "f" for footerLinks.
+	// Target (optional): use "blank" to open the link in a new tab.'
+	
+	var links = "Om forumet,/about,f,_top";
+	links.split("|").forEach(link => {
+		let [rawLabel, href, loc, target] = (link || "").split(",");
+		let className = `custom-hamburger-link ${rawLabel.replace(/\s+/g, "-").toLowerCase()}`;
+
+		loc = "f" === loc ? "footerLinks" : "generalLinks";
+		target = "blank" === target ? "_blank" : "";
+
+		api.decorateWidget(`hamburger-menu:${loc}`, () => {
+		return { href: href, rawLabel, className: className, attributes: {"target": target} }
+		});
+	});
+</script>
