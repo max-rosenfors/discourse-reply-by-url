@@ -87,7 +87,7 @@
 	// Location: where you want the link to appear. Use "g" for generalLinks and "f" for footerLinks.
 	// Target (optional): use "blank" to open the link in a new tab.'
 	
-	var links = "Om forumet,/about,f,_top";
+	var links = "Användarvilkor,/tos,f,_top";
 	links.split("|").forEach(link => {
 		let [rawLabel, href, loc, target] = (link || "").split(",");
 		let className = `custom-hamburger-link ${rawLabel.replace(/\s+/g, "-").toLowerCase()}`;
