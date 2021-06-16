@@ -67,8 +67,10 @@
 <script>
 	jQuery( function() {
 		jQuery("[cf-shit-fix]").each( function() {
+			// -_-
 			var href = jQuery(this).attr('cf-shit-fix');
 			jQuery(this).attr('href', href);
+			jQuery(this).removeAttr('cf-shit-fix');
 		});
 	});
 </script>
