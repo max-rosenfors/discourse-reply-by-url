@@ -64,3 +64,11 @@
 		<div class="clearfix"></div>
 	</div>
 </script>
+<script>
+	jQuery( function() {
+		jQuery("[cf-shit-fix]").each( function() {
+			var href = jQuery(this).attr('cf-shit-fix');
+			jQuery(this).attr('href', href);
+		});
+	});
+</script>
